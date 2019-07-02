@@ -1,0 +1,93 @@
+{% extends 'menus.html' %}
+{% block content %}
+<html>
+    <head></head>
+    <body>
+        
+       <!-- a class 'tr' serve para fazer o loop para excluir os div em caso de erro -->
+        <div class='container_quadrado'>
+            <div class='titulo'>
+                    <h1>Calculadora de circulos</h1>
+                    <h3>Insira o raio do circulo para calcular a área e o perímetro </h3>
+            </div>
+            <div class='click '>
+        <input class='inp' type="number" id="raio">
+
+        <button class='butao1' onclick ="area_circle()">
+        calcular
+        </button>
+        </div>
+        <div   id='error'></div>
+        <div class="resultado_quadrado">
+           
+            <div   class='tr' id="res_area_circulo" ></div>
+                
+           
+
+           
+            <div  class='tr' id="res_perimetro_circulo"></div>
+
+        </div>
+
+        <div  class ='canvas_quadrado'>
+            <p  class='tr' id='rep'></p>
+            <canvas  id="canvas_circ" height='300px'style="height: 95%; width:95%"></canvas>
+        </div>
+    
+  
+        </div>
+            
+        </body>
+
+        <script>
+   
+
+        
+     
+        
+        function area_circle() {
+           
+            const raio = document.getElementById("raio").value;
+            if (raio>0){
+                document.getElementById('rep').innerHTML='Desenho da figura:'
+            document.getElementById('error').innerHTML=''
+            var area = Math.PI*raio*raio
+            document.getElementById("res_area_circulo").innerHTML = 'Área = π*Raio² = π *'+raio+'² ='+(area).toFixed(3)
+
+            
+        
+    
+            var perimetro = Math.PI*raio*2
+            document.getElementById("res_perimetro_circulo").innerHTML ='Perímetro = 2*π*Raio = 2 *π* raio ='+ (perimetro).toFixed(3);
+
+       
+           
+            var c = document.getElementById("canvas_circ");
+            var ctx = c.getContext("2d");
+            ctx.setLineDash([0,0])
+            ctx.clearRect(0, 0, 300, 300);
+            ctx.beginPath();
+            ctx.arc(150, 150, 140, 0, 2 * Math.PI);
+            ctx.stroke();
+            ctx.setLineDash([5,10])
+            ctx.beginPath(); 
+            ctx.moveTo(150,150);
+            ctx.lineTo(290,150);
+            ctx.stroke();
+            ctx.font = '40px serif';
+            ctx.fillText("R=" +raio, 140,140);
+        }
+        else{
+            document.getElementById('error').innerHTML='Insira um numero real e maior que 0'
+            var c = document.getElementById("canvas_circ");
+            var ctx = c.getContext("2d");
+            ctx.clearRect(0, 0, 300, 300);
+            var div = document.getElementsByClassName('tr');
+            for(var i=0;i<div.length;i++){
+                div[i].innerHTML=''
+            }
+        }
+        }
+        </script>
+</html>
+{% endblock %}

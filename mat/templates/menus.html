@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html>
+       
+    <head>
+        {% load staticfiles %}
+        
+        <link href="{% static "css/static.css" %}" rel="stylesheet">
+    </head>
+    <body >
+        
+    
+       
+    <header>
+        <div class="heads">
+
+            <a href="{% url "mat:triangulo" %}">  <div> <p> triangulo </p>   <img class ='sqr' src="/static/images/triangle-menu.svg" alt="">  </div> </a>
+            
+            <a href="{% url "mat:circulo" %}">  <div> <p> circulo </p>   <img class ='sqr' src="/static/images/circle-menu.svg" alt="">  </div> </a>
+            
+            <a href="{% url "mat:quadrado" %}">  <div>  <p> quadrado </p>   <img class ='sqr' src="/static/images/square-menu.svg" alt=""> </div> </a>
+
+            <a href="{% url "mat:retangulo" %}" > <div>  <p> retangulo  </p>    <img class ='rect' src="/static/images/rect-menu.svg" alt="">  </div>  </a>
+            
+        </div>
+        
+        <div class="heads-dois">
+            
+            <div class='heads-mobile'>
+                  
+                <div class="icon-mobile" >  <img src="/static/images/option.svg" "alt="" onclick="expand()" > </div>
+                
+                
+                    <a href="{% url "mat:triangulo" %}">  <div> triangulo   <img class ='rect' src="/static/images/triangle-menu.svg" alt=""> </div></a>
+                    <a href="{% url "mat:circulo" %}">  <div> circulo   <img class ='rect' src="/static/images/circle-menu.svg" alt=""></div></a>
+                    <a href="{% url "mat:retangulo" %}" > <div>  retangulo  <img class ='rect' src="/static/images/rect-menu.svg" alt=""> </div></a>
+                    <a href="{% url "mat:quadrado" %}">  <div> quadrado  <img class ='sqr' src="/static/images/square-menu.svg" alt=""></div> </a>
+                            
+                
+                
+            </div>
+            <div class='logo'><img src="/static/images/logo.svg" "alt="" style="width: 250px"> </div>
+        </div>
+        
+      
+    </header>  
+</body>
+    {% block content %}
+    {% endblock %} 
+    <script>
+        
+        function expand(){
+            
+           
+        
+        document.getElementsByClassName('heads-mobile')[0].classList.toggle('active');
+      
+           
+        }
+        function exp_aux(){
+            if(document.getElementsByClassName('heads-mobile')[0].classList.contains('active')==true){
+        
+        document.getElementsByClassName('heads-mobile')[0].classList.toggle('active');
+        }
+        else{
+            
+        }
+        }
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            
+            document.getElementsByClassName("heads-dois")[0].style.height='20px'
+            document.getElementsByClassName("heads-dois")[0].style.opacity='0'
+            document.getElementsByClassName('logo')[0].style.opacity='0'
+            document.getElementsByClassName('icon-mobile')[0].style.opacity='0'
+
+        } else {
+           
+            document.getElementsByClassName("heads-dois")[0].style.height='100px'
+            document.getElementsByClassName("heads-dois")[0].style.opacity='1'
+            document.getElementsByClassName('logo')[0].style.opacity='1'
+            document.getElementsByClassName('icon-mobile')[0].style.opacity='1'
+
+        }
+        }
+        
+    </script>
+</html>

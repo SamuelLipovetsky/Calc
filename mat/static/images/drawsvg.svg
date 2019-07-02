@@ -1,0 +1,10 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet"
+ viewBox="0 0 640 640" width="100%" height="100%"><defs>
+ <path d="M160.59 320L1.19 640L320.01 640L638.81 640L479.42 320L320.01 0L160.59 320Z" id="c382QHcT1"></path>
+<text style="fill:lime;font-family:Arial;font-size:20px;" x="202.7973175048828" y="234.5002899169922" id="e8_texte">b</text>
+<text style="fill:lime;font-family:Arial;font-size:20px;" x="109.7947998046875" y="234.50030517578125" id="e10_texte">c</text>
+<text style="fill:lime;font-family:Arial;font-size:20px;" x="157.79615783691406" y="294.50189208984375" id="e2_texte">a</text>
+<text style="fill:red;font-family:Arial;font-size:20px;" x="147.79579162597656" y="174.49867248535156" id="e11_texte">bca</text><text style="fill:red;font-family:Arial;font-size:20px;" x="89.79425811767578" y="283.5016174316406" 
+id="e12_texte">cab</text><text style="fill:red;font-family:Arial;font-size:20px;" x="202.79730224609375" y="281.50152587890625" id="e13_texte">abc</text>
+</defs>
+</svg>

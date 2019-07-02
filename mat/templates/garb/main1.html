@@ -1,0 +1,631 @@
+<html>
+    <head></head>
+    <body>
+        <input type="number" id="lado_quadrado">
+        
+        <button onclick="area_quadrado() ,perimetro_quadrado(),diagonal_quadrado(),draw()">
+            calcular 
+        </button>
+        
+        <div >
+            a area do quadrado é
+            <div id="res_area_quadrado" ></div>
+
+            o perimetro do quadrado é
+            <div id="res_perimetro_quadrado"></div >
+             
+
+            a diagonal do quadrado é
+            <div id="res_diagonal_quadrado"></div>
+            
+        </div>
+
+        <div>
+            <canvas id="canvas" style="border:1px solid #000000"></canvas>
+        </div>
+
+        <input type="number" id="raio">
+
+        <button onclick ="area_circle(),perimetro_circle(),draw_circle()">
+        calcular
+        </button>
+        
+        
+        <div >
+            a area do circulo é
+            <div id="res_area_circulo" ></div>
+                
+           
+
+            o perimetro do circulo é
+            <div id="res_perimetro_circulo"></div>
+
+            
+
+            
+        </div>
+
+        <div>
+            <canvas id="canvas_circ" style="border:1px solid #000000"></canvas>
+        </div>
+        
+        <div>
+            <input type="number" id="lado_a">
+            <input type="number" id="lado_b">
+            <input type="number" id="lado_c">
+        </div>
+        
+        <div>
+            <input type="number" id="abc">
+            <input type="number" id="bca">
+            <input type="number" id="cab">
+        </div>
+
+        <button onclick ="draw_tri()">
+            calcular
+        </button>
+        <div>
+            <p id ='error'> </p>
+        </div>
+
+        <div>
+            <canvas height = "300" id="canvas_tri" style="border:1px solid #000000"></canvas>
+        </div>
+        
+        
+        
+
+        <script>
+   
+        function area_quadrado() {
+            if( lado_quadrado!== ""){ 
+            var lado_quadrado= document.getElementById("lado_quadrado").value;
+            var area = lado_quadrado * lado_quadrado ;
+            var res = document.getElementById("res_area_quadrado").innerHTML = area;
+        }
+        }
+        function perimetro_quadrado(){
+            if( lado_quadrado!== ""){ 
+            var lado_quadrado= document.getElementById("lado_quadrado").value;
+            var perimetro = lado_quadrado * 4 ;
+            var res = document.getElementById("res_perimetro_quadrado").innerHTML = perimetro;
+        }
+        }
+        function diagonal_quadrado(){
+            if( lado_quadrado!== ""){ 
+            var lado_quadrado= document.getElementById("lado_quadrado").value;
+            var diagonal = lado_quadrado * Math.SQRT2;
+            var res = document.getElementById("res_diagonal_quadrado").innerHTML = diagonal;
+        }
+        }
+        function draw() {
+            var lado_quadrado= document.getElementById("lado_quadrado").value 
+            if( lado_quadrado!== ""){ 
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            var lado_quadrado= document.getElementById("lado_quadrado").value;
+            
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeRect(65, 65,65,65);
+            ctx.font = '20px serif';
+            ctx.fillText("L="+ lado_quadrado, 60,60);
+        }
+        }
+        }
+
+        
+
+        function area_circle() {
+            const raio = document.getElementById("raio").value;
+            var area = Math.PI*raio*raio
+            var res = document.getElementById("res_area_circulo").innerHTML = area;
+
+            
+        }
+        function perimetro_circle(){
+            const raio = document.getElementById("raio").value;
+            var perimetro = Math.PI*raio*2
+            var res = document.getElementById("res_perimetro_circulo").innerHTML = perimetro;
+
+        }
+        function draw_circle(){
+            const raio = document.getElementById("raio").value;
+            var c = document.getElementById("canvas_circ");
+            var ctx = c.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+            ctx.stroke();
+
+            ctx.beginPath(); 
+            ctx.moveTo(100,75);
+            ctx.lineTo(150,75);
+            ctx.stroke();
+            ctx.font = '20px serif';
+            ctx.fillText("R=" +raio, 80,70);
+        }
+
+        function draw_tri(){
+
+            var c1 = document.getElementById("canvas_tri");
+            var ctx = c1.getContext("2d");
+            var rot
+            ctx.save()
+            
+            
+           
+                
+            
+           
+            var lado_a = document.getElementById("lado_a").value;
+            var lado_b= document.getElementById("lado_b").value;
+            var lado_c= document.getElementById("lado_c").value;
+            var abc = document.getElementById("abc").value;
+            var bca = document.getElementById("bca").value;
+            var cab = document.getElementById("cab").value;
+            var A = {
+                        x:0,
+                        y:0
+                    };
+            var B = {
+                        x:0,
+                        y:0
+                    };
+            var C = {
+                        x:0,
+                        y:0
+                    };
+
+            // checa se somente 3 inputs foram inseridos
+            var inputs =[lado_a,lado_b,lado_c,abc,bca,cab];
+            var valid =inputs.filter(func);
+            function func(value){
+                return value !=""
+                var err = document.getElementById("error").innerHTML="insira somente 3 valores"
+            }
+
+            if (valid.length >3){
+               
+                var lado_a= "" ;
+                var lado_b= "";
+                var lado_c= "";
+                var abc = "";
+                var bca = "";
+                var cab = "";
+
+            }
+
+            // caso 1
+            if ( lado_a && lado_b && abc != "" ){
+            var lado_a = document.getElementById("lado_a").value;
+            var lado_b= document.getElementById("lado_b").value;
+            var abc = document.getElementById("abc").value;
+            var control = 1;
+            rot = 0 
+            }
+            
+            else if ( lado_b && lado_c && bca != "" ){
+            var lado_a = document.getElementById("lado_b").value;
+            var lado_b= document.getElementById("lado_c").value;
+            var abc = document.getElementById("bca").value;
+            var control = 1;
+            rot = -0,5
+            }
+
+            else if ( lado_c && lado_a && cab != ""){
+            var lado_a = document.getElementById("lado_c").value;
+            var lado_b= document.getElementById("lado_a").value;
+            var abc = document.getElementById("cab").value;
+            var control = 1;
+            }
+
+            // <><><><><<><><>
+
+
+            // caso 2
+            // Var rot controla a rotaçao do triangulo (horario)
+            else if ( lado_a && lado_c && bca!= "" ){
+            var lado_a = document.getElementById("lado_c").value;
+            var lado_c= document.getElementById("lado_a").value;
+            var abc = document.getElementById("bca").value;
+            var control = 2;
+            rot =1.5
+            }
+            else if ( lado_a && lado_c && abc!= "" ){
+            var lado_a = document.getElementById("lado_a").value;
+            var lado_c= document.getElementById("lado_c").value;
+            var abc = document.getElementById("abc").value;
+            var control = 2;
+            }
+
+
+            else if ( lado_a && lado_b && cab!= "" ){
+            var lado_a = document.getElementById("lado_a").value;
+            var lado_c= document.getElementById("lado_b").value;
+            
+            var abc = document.getElementById("cab").value;
+            var control = 2;
+            rot= 1;
+            }
+
+            else if ( lado_a && lado_b && bca!= "" ){
+            
+            var lado_a = document.getElementById("lado_b").value;
+            var lado_c= document.getElementById("lado_a").value;
+           
+            var abc = document.getElementById("bca").value;
+            var control = 2;
+            rot=0.5;
+            }
+
+
+
+            else if ( lado_b && lado_c && cab!= "" ){
+            var lado_b = document.getElementById("lado_a").value;
+            var lado_c= document.getElementById("lado_b").value;
+            
+            var abc = document.getElementById("cab").value;
+            var control = 2;
+            rot= 1;
+            }
+            else if ( lado_a && lado_b && bca!= "" ){
+            var lado_a = document.getElementById("lado_a").value;
+            var lado_c= document.getElementById("lado_b").value;
+           
+            var abc = document.getElementById("bca").value;
+            var control = 2;
+            rot=1.5;
+            }
+
+
+
+
+
+            // <><><><><<><><>
+
+
+            
+            // :;;;;;;;::
+
+
+            else{
+                var lado_a= "" ;
+                var lado_b= "";
+                var lado_c= "";
+                var abc = "";
+                var bca = "";
+                var cab = "";
+                
+
+            }
+            
+            
+            
+            if (control ==1){
+            
+            // definindo os 3 vertices do triangulo
+            // O centro da matriz é 100,75
+           
+            // var A = {
+            //             x: Number(lado_a)+100,
+            //             y: 100
+            //         };
+            // var B = {
+            //             x: Number(lado_a)+100- Math.cos(Math.PI * abc / 180.0)*lado_b,
+            //             y: 100- Math.sin(Math.PI * abc / 180.0)*lado_b
+            //         };
+            // var C = {
+            //             x: 100,
+            //             y: 100
+            //         };
+
+            // var A = {
+            //             x: Number(lado_a),
+            //             y: 0
+            //         };
+
+            // var B = {
+            //             x:  Math.cos(Math.PI * abc / 180.0) *lado_b,
+            //             y:  Math.sin(Math.PI * abc / 180.0)*lado_b
+            //         };
+
+            //  var C = {
+            //             x: 100,
+            //             y: 200
+            //         };
+
+            var altura = Math.sin (Math.PI * abc / 180.0) *lado_b;
+            // a2 = projeçao horizontal do lado C
+            var a2 = lado_a - Math.cos(Math.PI * abc / 180.0)*lado_b;
+            var cab = Math.atan(altura/a2)* 180 / Math.PI;
+            var bca = 180 -Number(abc) -Number(cab);
+
+            // calculando lado c 
+
+            lado_c= lado_a*Math.sin(Math.PI *abc/180)/Math.sin(Math.PI *bca/180);
+
+                }
+
+            if (control ==2){
+
+               
+                // calculando angulo com lei dos seno
+                var bca = Math.asin(lado_a/lado_c*Math.sin(Math.PI * abc /180))*180/Math.PI
+                
+                var cab= 180 -abc- bca
+               
+                
+               
+               
+                // var A = {
+                //         x: Number(lado_a)+100,
+                //         y: 75
+                //     };
+
+                // var B = {
+                //         x: 100 + Math.cos(Math.PI * cab / 180.0) *lado_c,
+                //         y: 75- Math.sin(Math.PI * cab / 180.0)*lado_c
+                //     };
+
+                // var C = {
+                //         x: 100,
+                //         y: 75
+                //     };
+
+
+                // var A = {
+                //         x: Number(lado_a),
+                //         y: 0
+                //     };
+
+                // var B = {
+                //         x:  Math.cos(Math.PI * cab / 180.0) *lado_c,
+                //         y:  Math.sin(Math.PI * cab / 180.0)*lado_c
+                //     };
+
+                // var C = {
+                //         x: 100,
+                //         y: 200
+                //     };
+
+
+
+                
+                
+                // Calculando labo b com pitagoras
+                lado_b= Math.sqrt(Math.pow((lado_a-  ((Math.cos(Math.PI * cab / 180.0))*lado_c)),2) +
+                
+                Math.pow(Math.sin(Math.PI * cab / 180.0)*lado_c,2))
+                
+    
+            }
+
+            // condiçao de exitencia
+            if ( Math.sin(Math.PI * cab / 180.0) == 0 ||
+                     isNaN(Math.sin(Math.PI * cab / 180.0))==true||
+                     (Math.PI * cab / 180.0) < 0  ||
+
+                     Math.cos(Math.PI * cab / 180.0)  == 0 ||
+                     isNaN(Math.cos(Math.PI * cab / 180.0))  == true ||
+                     Math.cos(Math.PI * cab / 180.0) > 1 ||
+                     Math.cos(Math.PI * cab / 180.0) < -1
+                    )
+                
+                {
+                var err = document.getElementById("error").innerHTML=
+                "esses tres valores nao atendem as condiçoes de existencia de um triangulo ";
+                var lado_a=0;
+                var lado_b=0;
+                var lado_c=0;
+                var abc = 0;
+                var bca = 0;
+                var cab = 0;
+                }
+
+                else{
+                    var err = document.getElementById("error").innerHTML=""
+
+                }
+           console.log("LADOS  "+  lado_a,lado_b,lado_c)
+           console.log("ANGULOS  " +abc,cab,bca)
+           console.log(control)
+           console.log("rotaçao  "  + rot)
+           console.log("   ")
+           
+
+        
+            // ctx.beginPath(); 
+            // ctx.moveTo(100,75);
+            // ctx.lineTo(Number(lado_a)+100,75);
+
+            // ctx.lineTo(Number(lado_a)+100- Math.cos(Math.PI * abc / 180.0)*lado_b,
+            // 75- Math.sin(Math.PI * abc / 180.0)*lado_b);
+
+            // ctx.lineTo(100,75);
+
+            // ctx.closePath();
+
+            // ctx.stroke();
+            
+
+
+            var maior_lado =  Math.max(lado_a,lado_b,lado_c);
+            var true_lado = 150
+            var k= true_lado/maior_lado
+            ctx.clearRect(0, 0, canvas.width, 300);   
+
+            
+            
+            // ctx.translate(150, 150);
+            // ctx.rotate(rot*Math.PI );
+            // ctx.translate(-150, -150);
+            
+            
+           
+            
+            
+            
+           
+              
+            
+            
+           if(control==2 ){
+                var bca = Math.asin(lado_a/lado_c*Math.sin(Math.PI * abc /180))*180/Math.PI
+                var cab= 180 -abc- bca
+               // Calculando labo b com pitagoras
+               lado_b= Math.sqrt(Math.pow((lado_a-  ((Math.cos(Math.PI * cab / 180.0))*lado_c)),2) +
+                Math.pow(Math.sin(Math.PI * cab / 180.0)*lado_c,2))
+
+               if(rot==1){
+                var A= {
+                        x: lado_a,
+                        y: 0
+                    };
+
+                var B = {
+                        x:  Math.cos(Math.PI * cab / 180.0) *lado_c,
+                        y:  Math.sin(Math.PI * cab / 180.0)*lado_c
+                    };
+
+                var C = {
+                        x: 100,
+                        y: 200
+                    };
+                ctx.beginPath();
+                ctx.moveTo(C.x,C.y);
+                ctx.lineTo(C.x + (A.x*k),C.y + (A.y*k));
+
+                ctx.lineTo(C.x+ (A.x*k) -(B.x *k), C.y -(B.y*k));
+
+                ctx.lineTo(C.x,C.y);
+
+                ctx.closePath();
+
+
+                ctx.stroke();
+
+            
+                ctx.restore()
+           }
+
+           }
+           
+            // ctx.moveTo(C.x,C.y);
+            // ctx.lineTo(C.x + (A.x*k),C.y + (A.y*k));
+
+            // ctx.lineTo(C.x + (B.x *k), C.y -(B.y*k));
+
+            // ctx.lineTo(C.x,C.y);
+
+            // ctx.closePath();
+            
+
+            // ctx.stroke();
+
+            // // ctx.translate(150, 150);
+            // // ctx.rotate(-rot*Math.PI );
+            // // ctx.translate(-150, -150);
+
+            // ctx.restore()
+
+            
+            
+  
+
+
+
+            
+                
+            
+            
+
+         
+
+            // ctx.beginPath(); 
+            // ctx.moveTo(100,75);
+            // ctx.lineTo(A.x,A.y);
+
+            // ctx.lineTo(B.x,B.y);
+
+            // ctx.lineTo(C.x,C.y);
+
+            // ctx.closePath();
+
+            // ctx.stroke();
+
+            
+            
+            
+
+            
+            
+
+
+            
+            // ctx.beginPath(); 
+
+            // ctx.arc(100+Number(lado_a),75,Number(lado_a)/5,Math.PI *3,
+            // Math.PI * abc / 180.0 -Math.PI *1) ;
+
+            // ctx.stroke();
+
+
+
+            // ctx.beginPath(); 
+
+            // ctx.arc(100,75,Number(lado_a)/5,-Math.PI * cab/180,Math.PI*0)
+            
+            // ctx.stroke();
+
+
+
+            // ctx.beginPath(); 
+
+            // ctx.arc(B.x,B.y,Number(lado_a)/5,Number(Math.PI * abc/180),
+            // Number(Math.PI * abc/180) +
+            // Number(Math.PI * bca/180))
+            
+            // ctx.stroke();
+
+
+            
+            
+            // ctx.beginPath(); 
+
+            // ctx.arc(A.x,A.y,Number(lado_a)/5,Math.PI *3,
+            // Math.PI * abc / 180.0 -Math.PI *1) ;
+
+            // ctx.stroke();
+
+
+
+            // ctx.beginPath(); 
+
+            // ctx.arc(C.x,C.y,Number(lado_a)/5,-Math.PI * cab/180,Math.PI*0)
+            
+            // ctx.stroke();
+
+
+
+            // ctx.beginPath(); 
+
+            // ctx.arc(B.x,B.y,Number(lado_a)/5,Number(Math.PI * abc/180),
+            // Number(Math.PI * abc/180) +
+            // Number(Math.PI * bca/180))
+            
+            // ctx.stroke();
+
+                
+            
+        }
+        
+            
+
+
+        
+        
+        </script>
+    </body>
+</html>

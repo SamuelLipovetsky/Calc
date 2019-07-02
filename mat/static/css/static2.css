@@ -1,0 +1,108 @@
+
+canvas{
+    height: 300;
+    width: 300;
+    border: 1px solid black;
+    margin-top: 10%;
+ }
+
+ .widget{
+     display: flex;
+     width: 50%;
+     height: 50%;
+
+ }
+ .widget > div {
+    flex: 1; /*grow*/
+  }
+ .resultados{
+     width: 150px;
+     height: 150px;
+ }
+ .opc{
+     width: 60px;
+     height: 20px;
+     background-color :edf0f4; 
+    
+ }
+ .cont{
+     margin-bottom: 5%;
+     margin-left: 5%;
+     margin-top: 5%;
+     width: 150px;
+
+     position: relative
+ }
+ .clickable{
+     display:inline-block;
+     width: 150px
+ }
+.input{
+    background-image: url("/static/images/drawsvg.svg") ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    display: block;
+    
+    padding-bottom: 81%;
+    /* position: relative */
+}
+.butao{
+    background-color: edf0f4;
+    border:none;
+    border-radius: 5px;
+    width: 60px;
+    height: 20px;
+}
+.number{
+    width: 50%;
+    height: 100%;
+    
+    border: groove ;
+    
+} 
+
+
+.a{
+    position: absolute;
+    bottom: -8%;
+    left: 41%;
+    width: 40%;
+    height:10%;
+
+} 
+
+.b{
+    position: absolute;
+    bottom: 45%;
+    left: 75%;
+    width: 40%;
+    height:10%;
+} 
+.c{
+    position: absolute;
+    bottom: 45%;
+    left: 6%;
+     width: 40%;
+     height:10%;
+} 
+.Abc{
+    position: absolute;
+    bottom: 0%;
+    left: 97%;
+     width: 40%;
+     height:10%;
+} 
+.Bca{
+    position: absolute;
+    bottom: 100% ;
+    left: 40%;
+     width: 40%;
+     height:10%;
+} 
+.Cab{
+    position: absolute;
+    bottom: 0%;
+    left: -16.5%;
+     width: 40%;
+     height:10%;
+}

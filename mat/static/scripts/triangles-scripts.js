@@ -84,22 +84,22 @@ function draw_tri(){
 
                     // aceita os valore de pi/2.... etc
                     // ve se o input contem "pi" e usa o regex pra deixa soment o numero na sting da input
-                   if(ab.indexOf('pi')!=-1){
+                   if(ab.search(new RegExp("pi", "i")) != -1){
                     
                     var cof = ab.replace(/[^0-9.]/g, "");
                     console.log('cof '+ cof)
                     abc= (Math.PI  / Number(cof)) *180/Math.PI;
                     console.log(abc)
                    }
-                   if(bc.indexOf('pi')!=-1){
+                   if(bc.search(new RegExp("pi", "i")) != -1){
                    
                     var cof = bc.replace(/[^0-9.]/g, "");
                     console.log('cof '+ cof)
                     bca= (Math.PI  / Number(cof)) *180/Math.PI;
                     console.log(bca)
                    }
-                   if(ca.indexOf('pi')!=-1){
-                   
+                   if(ca.search(new RegExp("pi", "i")) != -1){
+                
                     var cof = ca.replace(/[^0-9.]/g, "");
                     console.log('cof '+ cof)
                     cab= (Math.PI  / Number(cof)) *180/Math.PI;

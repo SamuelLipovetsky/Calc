@@ -25,9 +25,9 @@ SECRET_KEY = '=y=j6z7dss)_%ztkeq8o*z+_*k$-suokg$5vj=psn8$za0v5^_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.4','0.0.0.0','localhost']
+# ALLOWED_HOSTS = ['192.168.1.4','0.0.0.0','localhost']
 
-django_heroku.settings(locals())
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -122,3 +122,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR,"mat/static"),
 )
+django_heroku.settings(locals())

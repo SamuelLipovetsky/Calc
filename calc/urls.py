@@ -25,7 +25,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     
-    path('calc/', include('mat.urls')),
+    path('', include('mat.urls')),
 
 ]
 
